@@ -22,10 +22,13 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect("mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+// mongoose.connect("mongodb://localhost/budget", {
+//   useNewUrlParser: true,
+//   useFindAndModify: false
+// });
+
+// for heroku deployment (use database created for heroku if deployed)
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {useNewUrlParser: true, useCreateIndex: true});
 
 // routes
 app.use(require("./routes/api.js"));
