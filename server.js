@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-// new port
+// new port, added process.env.PORT for heroku deployment
 const PORT = process.env.PORT || 3001;
 
 const app = express();
